@@ -8,12 +8,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserConsumer {
     @RabbitListener(queues = RabbitMQConfig.USER_QUEUE)
-    public void receive(User user) throws InterruptedException {
-        System.out.println("User Received: "+ user.getEmail());
-        System.out.println("Sending Welcome Email...: "+ user.getEmail());
-
-        Thread.sleep(2000);
-        System.out.println("Email Sent!");
+    public void receive(User user) {
+        try {
+            System.out.println("User Received: " + user.getEmail());
+            System.out.println("Sending Welcome Email...: " + user.getEmail());
+        } catch (Exception e){
+            throw new RuntimeException("Error Proccessing Message", e);
+        }
 
     }
 }

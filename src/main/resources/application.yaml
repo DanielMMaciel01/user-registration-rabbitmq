@@ -2,3 +2,23 @@ spring:
   application:
     name: user-registration-rabbitmq
 
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+    listener:
+      simple:
+        retry:
+          enabled: true
+          initial-interval: 1000
+          max-attempts: 3
+          multiplier: 2.0
+        default-requeue-rejected: false
+
+logging:
+  level:
+    root: INFO
+    org.springframework.amqp: INFO
