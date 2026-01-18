@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.danielmaciel</groupId>
 	<artifactId>user-registration-rabbitmq</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.3</version>
 	<name>user-registration-rabbitmq</name>
 	<description>User registration API using Spring Boot and RabbitMQ</description>
 	<properties>
